@@ -61,7 +61,7 @@ SERVER_IP="$(hostname -I 2>/dev/null | awk '{print $1}')"
 SERVER_IP="${SERVER_IP:-127.0.0.1}"
 DB_NAME="traccar"
 DB_USER="traccar"
-DB_PASS="$(tr -dc 'A-Za-z0-9' </dev/urandom | head -c 24)"
+DB_PASS="$(openssl rand -hex 16)"
 WORKDIR="$(mktemp -d)"
 
 cleanup() {
